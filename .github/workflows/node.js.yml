@@ -36,5 +36,15 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "demo-simple-node-api" #Must be unique in Heroku
           heroku_email: "manojsingh.ceh@gmail.com"
+# Run DAST Scan Using IBM APPScan Cloud
+      - name: Appscan Cloud DAST Scan
+        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2
+        with:
+          asoc_key: ${{secrets.ASOC_KEY}}
+          asoc_secret: ${{secrets.ASOC_SECRET}}
+          publish_on_merge: true
+          application_id: e2712b66-ea11-447e-a5d7-f34981c78286
+    env: 
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     
     
